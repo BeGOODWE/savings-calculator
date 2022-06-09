@@ -1,5 +1,7 @@
 document.getElementById("resultText").value = "You will have saved $ "
 
+document.getElementById("start").scrollIntoView()
+
 function calcSavings() {
   var monthlyPayment = document.getElementById("monthlyPayment").value;
   var annualInterest = document.getElementById("annualInterest").value;
