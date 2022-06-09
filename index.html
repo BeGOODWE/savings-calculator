@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Savings Calculator</title>
+    <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Title area -->
+    <div class="container-fluid title">
+      <h1>Savings Calculator</h1>
+      <p>Figure out how much you could save over time with monthly payments into a portfolio</p>
+    </div>
+
+    <!-- Body with inputs -->
+    <div class="container-fluid inputs">
+      <div class="row align-items-center">
+        <div class="col">
+          <h6>Monthly Payment</h6>
+          <p>How much you would add per month (no commas or currency signs needed). Feel free to <a href="#depositCalculator">calculate this quickly</a>  at the bottom of the page</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">$</span>
+            <input type="text" class="form-control monthlyPayment" id="monthlyPayment">
+          </div>
+        </div>
+        <div class="col">
+          <h6>Annual Performance</h6>
+          <p>The total annual return you expect on your investments (in %). Normal values would range between 3 and 10</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control annualInterest" id="annualInterest">
+            <span class="input-group-text" id="basic-addon2">%</span>
+          </div>
+        </div>
+        <div class="col">
+          <h6>Years</h6>
+          <p>How many years you expect to add in for. Usually the amount of years until your expected retirement age (c.55-65)</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control annualInterest" id="years">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculation section  -->
+    <div class="container-fluid calculations">
+      <div class="input-group mb-3">
+        <button id="calcButton" class="btn btn-dark" type="button">Calculate</button>
+        <input id="resultText" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <button id="chartNav" class="btn btn-outline-secondary" type="button">Chart it!</button>
+      </div>
+
+    </div>
+    <div class="container-fluid chartTitle" id="chartTitle">
+      <h3>Chart your savings</h3>
+      <p>Y-axis is $, X-axis is months. Refresh the page to chart again</p>
+    </div>
+    <div id="graphContainer">
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      const labels = [
+
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Savings Growth',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [],
+        }]
+      };
+
+      const config = {
+        type: 'line',
+        data: data,
+        options: {}
+      };
+
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    </script>
+
+    <!-- Figure out how much your could deposit -->
+    <div class="container-fluid depositCalcTitle">
+      <h2>Calculate your potential monthly deposit</h2>
+    </div>
+    <div class="container-fluid depositCalc">
+      <a id="depositCalculator"></a>
+      <div class="row align-items-center depositCalculatorFirstRow">
+        <div class="col">
+          <h6>Annual Income (pre-tax)</h6>
+          <p>What you are paid per year</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">$</span>
+            <input type="text" class="form-control" id="annualIncome">
+          </div>
+        </div>
+        <div class="col">
+          <h6>Tax Rate</h6>
+          <p>Tax you'll pay (in %) (usually 0-45)</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="taxRate">
+            <span class="input-group-text" id="basic-addon2">%</span>
+          </div>
+        </div>
+        </div>
+        <div class="row align-items-center depositCalculatorSecondRow">
+          <div class="col">
+            <h6>Post-tax annual income</h6>
+            <p>After tax you have:</p>
+            <div class="input-group mb-3">
+              <button id="calcPostTax" class="btn btn-outline-secondary" type="button">Calculate</button>
+              <span class="input-group-text">$</span>
+              <input id="postTaxIncome" type="text" class="form-control" placeholder="" value="">
+            </div>
+          </div>
+          <div class="col">
+            <h6>Savings Rate</h6>
+            <p>How much of this post-tax income could you save (in %)</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="savingsRate">
+              <span class="input-group-text" id="basic-addon2">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Area for final Calculation of deposit amount -->
+        <div class="container-fluid" id="calcDepositFinal">
+          <div class="input-group mb-3">
+            <button id="calcDeposit" class="btn btn-dark" type="button">Calculate</button>
+            <input id="potentialMonthlyDeposit" type="text" class="form-control" placeholder="" value="You could make monthly deposits of $">
+          </div>
+        </div>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted conclusion">&copy; Nav Aithani</p>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>

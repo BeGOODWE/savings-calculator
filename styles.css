@@ -1,0 +1,91 @@
+body, html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+
+/* Title section */
+
+.title {
+  height: 30%;
+  background-image: linear-gradient(to bottom right,#1F4690, #FFA500);
+  color: white;
+  text-align: center;
+  padding-top: 3.5%;
+}
+
+/* Inputs for savings calculations */
+.inputs {
+  padding: 5%;
+  overflow-wrap:break-word;
+}
+
+.inputs .input-group {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.col {
+  text-align: center;
+}
+
+/* Chart section */
+.chartTitle {
+  text-align: center;
+  padding-top: 3%;
+}
+
+#myChart {
+  padding: 10%;
+  margin-top: -7% !important;
+}
+
+
+/* Calculations for investments section */
+.calculations {
+  padding: 3% 20%;
+  background-image: linear-gradient(to right, #F6C6EA, #CDF0EA);
+}
+
+#calcButton:hover {
+  background-color: white;
+  color: black;
+  outline: none;
+}
+
+/* Calculating deposit amount sections */
+.depositCalc {
+  padding: 5%;
+  overflow-wrap:break-word;
+}
+
+.depositCalcTitle {
+  text-align: center;
+  background-image: linear-gradient(to bottom left, #990000, #FF5B00, #FFEE63);
+  height: 20%;
+  padding: 3.5%;
+  color: white;
+}
+
+.depositCalc .input-group {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.depositCalculatorFirstRow .col {
+  margin-top: -2%;
+}
+
+.depositCalculatorSecondRow .col {
+  margin-top: 3%;
+}
+
+/* Area for final Calculation of deposit amount */
+#calcDepositFinal {
+margin-top: 3%;
+}
+
+.conclusion {
+  text-align: center;
+  margin-top: -3%!important;
+}
