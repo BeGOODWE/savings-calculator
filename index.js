@@ -48,7 +48,7 @@ for (let i=0; i<periods; i++) {
 
 }
 
-document.getElementById("calcButton").addEventListener('click', chartSavings)
+document.getElementById("chartNav").addEventListener('click', chartSavings)
 
 function calcPostTax() {
   var annualIncome = document.getElementById("annualIncome").value;
